@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "CheatExtension",
+    "description": "CheatExtension v1.0",
+    "version": "1.0",
+    "icons": {
+        "128": "hacker.png"
+    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "https://www.google.com/*"
+    ]
+}
