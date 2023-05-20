@@ -7,15 +7,17 @@
         "128": "hacker.png"
     },
     "permissions": [
+        "clipboardWrite",          
         "storage",
-        "tabs",
         "activeTab",
-        "scripting"
+        "scripting",
+        "tabs"
     ],
     "background": {
         "service_worker": "background.js"
     },
     "host_permissions": [
-        "https://www.google.com/*"
+        "https://www.google.com/*",
+        "https://virtual.um.edu.ar/*"
     ]
 }
