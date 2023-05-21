@@ -17,39 +17,38 @@ messageDiv.style.color = 'black';
 document.body.insertBefore(messageDiv, document.body.firstChild);
 
 // Mostrar el texto copiado en messageDiv cuando se realice Ctrl+C y buscarlo en Google
-document.addEventListener('copy', function(event) {
+document.addEventListener('copy', async function(event) {
   var selectedText = window.getSelection().toString();
   event.preventDefault(); // Evitar la copia del texto en el portapapeles por defecto
 
+  const apiKey = "your-openai-key"; // Reemplaza con tu propia clave de API de OpenAI 
 
-  // Envía el texto seleccionado al servidor
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://localhost:7000/search', true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      var result = JSON.parse(xhr.responseText);
-      // Muestra el resultado en la pantalla
-      alert(result);
-    }
+  const data = {
+    model: 'gpt-3.5-turbo',
+    messages: [{ role: 'user', content: selectedText }],
+    temperature: 0.7
   };
-  xhr.send(JSON.stringify({ text: selectedText }));
-});
-  // // Realizar búsqueda en Google
-  // var searchQuery = encodeURIComponent(selectedText);
-  // var searchUrl = 'https://www.google.com/search?q=' + searchQuery;
 
-  // // Obtener el título del primer resultado de búsqueda
-  // fetch(searchUrl)
-  //   .then(response => response.text())
-  //   .then(html => {
-  //     var parser = new DOMParser();
-  //     var doc = parser.parseFromString(html, 'text/html');
-  //     var firstResult = doc.querySelector('h3');
-  //     var firstResultTitle = firstResult ? firstResult.innerText : 'No se encontraron resultados';
-  //     messageDiv.innerText = firstResultTitle; // Mostrar el título del primer resultado en messageDiv
-  //   })
-  //   .catch(error => {
-  //     console.error('Error al realizar la búsqueda:', error);
-  //   });
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + apiKey
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      throw new Error('Error en la solicitud: ' + response.status);
+    }
+
+    const result = await response.json();
+    var responseText = result.choices[0].message.content;
+
+    // Mostrar el texto copiado y el texto generado en messageDiv
+    messageDiv.innerHTML = 'Texto copiado: ' + selectedText + '<br><br>' + 'Texto generado: ' + responseText;
+  } catch (error) {
+    console.error('Error:', error);
+  }
 });
