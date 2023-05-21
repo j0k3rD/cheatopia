@@ -1,23 +1,29 @@
 {
     "manifest_version": 3,
     "name": "CheatExtension",
-    "description": "CheatExtension v1.0",
-    "version": "1.0",
+    "description": "CheatExtension v1.0.1",
+    "version": "1.0.1",
+    "action": {
+      "default_popup": "config.html",
+      "default_title": "CheatExtension"
+    },
     "icons": {
-        "128": "hacker.png"
+      "128": "hacker.png"
     },
     "permissions": [
-        "clipboardWrite",          
-        "storage",
-        "activeTab",
-        "scripting",
-        "tabs"
+      "clipboardWrite",
+      "storage",
+      "activeTab",
+      "scripting",
+      "tabs"
     ],
     "background": {
-        "service_worker": "background.js"
+      "service_worker": "background.js",
+      "type": "module"
     },
     "host_permissions": [
-        "https://www.google.com/*",
-        "https://virtual.um.edu.ar/*"
+      "https://www.google.com/*",
+      "https://virtual.um.edu.ar/*"
     ]
-}
+  }
+  

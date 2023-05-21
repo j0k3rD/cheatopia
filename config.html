@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: "Courier New", monospace;
+    }
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+      width: 300px;
+      font-size: 16px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      outline: none;
+    }
+
+    button[type="submit"] {
+      /* centrar */
+      display: block;
+      margin-top: 15px;
+      padding: 5px 10px;
+      font-size: 16px;
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CheatExtension ApiKey Setting</h1>
+  <form id="configForm">
+    <label for="apiKey">API Key:</label>
+    <input type="password" id="apiKey" name="apiKey" required>
+    <button type="submit">Guardar</button>
+  </form>
+  <script src="config.js"></script>
+</body>
+</html>

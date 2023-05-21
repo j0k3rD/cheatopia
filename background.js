@@ -5,9 +5,9 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             target: { tabId: tabId },
             files: ['./searchCopy.js']
         })
-            .then(() => {
-                console.log('INJECTED THE SEARCHBING SCRIPT.')
-            })
-            .catch(err => console.log(err));
+        .then(() => {
+            console.log('INJECTED THE SEARCHCOPY SCRIPT.');
+        })
+        .catch(err => console.log(err));
     }
 });

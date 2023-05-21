@@ -1,3 +1,4 @@
+//searchCopy.js
 // Crear un elemento <div> para mostrar el mensaje
 var messageDiv = document.createElement('div');
 
@@ -22,34 +23,42 @@ document.addEventListener('copy', async function(event) {
   var selectedText = window.getSelection().toString();
   event.preventDefault(); // Evitar la copia del texto en el portapapeles por defecto
 
-  const apiKey = "your-openai-api-key"; // Reemplaza con tu propia clave de API de OpenAI 
+  chrome.storage.local.get('apiKey', async function(data) {
+    var apiKey = data.apiKey;
 
-  const data = {
-    model: 'gpt-3.5-turbo',
-    messages: [{ role: 'user', content: selectedText }],
-    temperature: 0.7
-  };
-
-  try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + apiKey
-      },
-      body: JSON.stringify(data)
-    });
-
-    if (!response.ok) {
-      throw new Error('Error en la solicitud: ' + response.status);
+    if (!apiKey) {
+      // Realizar alguna acción, como mostrar un mensaje de error
+      console.log('You must set a API key.');
+      return;
     }
 
-    const result = await response.json();
-    var responseText = result.choices[0].message.content;
-
-    // Mostrar el texto copiado y el texto generado en messageDiv
-    messageDiv.innerHTML = responseText;
-  } catch (error) {
-    console.error('Error:', error);
-  }
+    const reponseData = {
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: selectedText }],
+      temperature: 0.7
+    };
+  
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + apiKey
+        },
+        body: JSON.stringify(reponseData)
+      });
+  
+      if (!response.ok) {
+        throw new Error('Response Error: ' + response.status);
+      }
+  
+      const result = await response.json();
+      var responseText = result.choices[0].message.content;
+  
+      // Mostrar el texto copiado y el texto generado en messageDiv
+      messageDiv.innerHTML = responseText;
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  });
 });
