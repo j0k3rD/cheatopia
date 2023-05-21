@@ -6,10 +6,11 @@ messageDiv.style.position = 'fixed';
 messageDiv.style.bottom = '0';
 messageDiv.style.left = '0';
 messageDiv.style.width = '100%';
+messageDiv.style.maxHeight = '19px';
+messageDiv.style.overflow = 'auto'; // Permitir desplazamiento vertical
 messageDiv.style.backgroundColor = 'lightgray';
 messageDiv.style.padding = '1px';
 messageDiv.style.textAlign = 'center';
-messageDiv.style.fontWeight = 'bold';
 messageDiv.style.zIndex = '9999'; // Asegura que el elemento se muestre por encima de otros elementos
 messageDiv.style.color = 'black';
 
@@ -21,7 +22,7 @@ document.addEventListener('copy', async function(event) {
   var selectedText = window.getSelection().toString();
   event.preventDefault(); // Evitar la copia del texto en el portapapeles por defecto
 
-  const apiKey = "your-openai-key"; // Reemplaza con tu propia clave de API de OpenAI 
+  const apiKey = "your-openai-api-key"; // Reemplaza con tu propia clave de API de OpenAI 
 
   const data = {
     model: 'gpt-3.5-turbo',
@@ -47,7 +48,7 @@ document.addEventListener('copy', async function(event) {
     var responseText = result.choices[0].message.content;
 
     // Mostrar el texto copiado y el texto generado en messageDiv
-    messageDiv.innerHTML = 'Texto copiado: ' + selectedText + '<br><br>' + 'Texto generado: ' + responseText;
+    messageDiv.innerHTML = responseText;
   } catch (error) {
     console.error('Error:', error);
   }
