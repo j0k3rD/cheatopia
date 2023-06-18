@@ -1,4 +1,4 @@
-# Cheat Extension 🤖
+# CheatopIA 🤖
 
 Welcome to Cheat Extension, a Google Chrome extension that allows you to quickly access cheat sheets for various programming languages and tools. With Cheat Extension, you can easily find the syntax and usage of a command or function without ever leaving your current tab.
 
