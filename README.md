@@ -59,3 +59,10 @@ Also don't forget to rate the project if it was helpful! 🌟
 ## Credits
 
 CheatopIA was created by [j0k3rD](https://github.com/j0k3rD).
+
+## License
+
+Copyright (c) 2022-2023 Aaron Moya
+
+This software is released under the terms of the MIT License.
+See the [LICENSE](LICENSE) file for further information.
