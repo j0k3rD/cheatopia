@@ -1,4 +1,26 @@
-# CheatopIA 🤖
+<h1 align="center">CheatopIA 🤖</h1>
+<h3 align='center'>Soon on stores!</h3>
+
+<p align="center">
+  </br>
+<!--   <a href="https://chrome.google.com/webstore/detail/"> -->
+    <picture>
+      <source srcset="https://i.imgur.com/XBIE9pk.png" media="(prefers-color-scheme: dark)">
+      <img height="58" src="https://i.imgur.com/oGxig2F.png" alt="Chrome Web Store"></picture></a>
+<!--   <a href="https://addons.mozilla.org/firefox/addon/"> -->
+    <picture>
+      <source srcset="https://i.imgur.com/ZluoP7T.png" media="(prefers-color-scheme: dark)">
+      <img height="58" src="https://i.imgur.com/4PobQqE.png" alt="Firefox add-ons"></picture></a>
+<!--   <a href="https://microsoftedge.microsoft.com/addons/detail/"> -->
+    <picture>
+      <source srcset="https://i.imgur.com/Jog9cQP.png" media="(prefers-color-scheme: dark)">
+      <img height="58" src="https://i.imgur.com/aiprUt8.png" alt="Microsoft Store"></picture></a>
+<!--   <a href="https://addons.opera.com/extensions/details/"> -->
+    <picture>
+      <source srcset="https://i.imgur.com/ziehy0f.png" media="(prefers-color-scheme: dark)">
+      <img height="58" src="https://i.imgur.com/ytVATu0.png" alt="Opera add-ons"></picture></a>
+  </br></br>
+</p>
 
 Welcome to CheatopIA, a Google Chrome extension that allows you to quickly access cheat sheets for various programming languages and tools. With CheatopIA, you can easily find the syntax and usage of a command or function without ever leaving your current tab.
 
