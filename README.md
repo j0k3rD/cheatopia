@@ -1,5 +1,5 @@
 <h1 align="center">CheatopIA 🤖</h1>
-<h3 align='center'>Soon on stores!</h3>
+<h3 align='center'>Soon in stores!</h3>
 
 <p align="center">
   </br>
